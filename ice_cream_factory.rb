@@ -27,14 +27,12 @@ class IceCreamFactory < Factory
 
   def prediction_coefficient
     temperature = predictor.predict_for_tomorrow
-    coefficient =
-      if temperature > NORMAL_WEATHER_HIGH_THRESHOLD
-        COEFFICIENT_FOR_WARM_WEATHER
-      elsif temperature < NORMAL_WEATHER_LOW_THRESHOLD
-        COEFFICIENT_FOR_CHILLY_WEATHER
-      else
-        COEFFICIENT_FOR_NORMAL_WEATHER
-      end
-    coefficient
+    if temperature > NORMAL_WEATHER_HIGH_THRESHOLD
+      COEFFICIENT_FOR_WARM_WEATHER
+    elsif temperature < NORMAL_WEATHER_LOW_THRESHOLD
+      COEFFICIENT_FOR_CHILLY_WEATHER
+    else
+      COEFFICIENT_FOR_NORMAL_WEATHER
+    end
   end
 end
