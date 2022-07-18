@@ -8,3 +8,7 @@ tp = TemperaturePredictor.new(latitude: 53.1, longitude: 86.2)
 factory = IceCreamFactory.new(name: 'Danone', predictor: tp)
 batch = factory.produce!(quantity: 10)
 puts batch.size
+ice_cream = batch[0]
+ice_cream.open
+puts ice_cream.opened?
+puts ice_cream.cost

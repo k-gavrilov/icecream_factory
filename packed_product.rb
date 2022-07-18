@@ -1,19 +1,23 @@
+require 'forwardable'
+
 class PackedProduct
-  attr_reader :cost, :package, :empty
+  attr_reader :package, :empty, :content_cost, :opened
 
-  def initialize
+  extend Forwardable
+  def_delegators :package, :opened?, :open
+
+  def initialize(content_cost:, package:)
     @empty = false
-  end
-
-  def open
-    raise NoMethodError, "Method should be implemented in concrete classes"
-  end
-
-  def open?
-    raise NoMethodError, "Method should be implemented in concrete classes"
+    @opened = false
+    @content_cost = content_cost
+    @package = package
   end
 
   def empty?
     empty
+  end
+
+  def cost
+    content_cost + package.cost
   end
 end

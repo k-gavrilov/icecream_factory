@@ -2,7 +2,7 @@ require_relative 'factory'
 require_relative 'ice_cream'
 
 class IceCreamFactory < Factory
-  PRODUCT_CLASS = IceCream
+  DEFAULT_PRODUCT_CLASS = IceCream
   COEFFICIENT_FOR_WARM_WEATHER = 1.5
   COEFFICIENT_FOR_CHILLY_WEATHER = 0.5
   COEFFICIENT_FOR_NORMAL_WEATHER = 1
@@ -16,7 +16,7 @@ class IceCreamFactory < Factory
     @predictor = predictor
   end
 
-  def produce!(quantity:, product_class: PRODUCT_CLASS)
+  def produce!(quantity:, product_class: DEFAULT_PRODUCT_CLASS)
     super(quantity: corrected_quantity(quantity), product_class: product_class)
   end
 

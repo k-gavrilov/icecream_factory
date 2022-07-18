@@ -8,7 +8,6 @@ class Factory
     @produced_goods = []
   end
 
-  # TODO: why bang?
   def produce!(quantity:, product_class:)
     batch = []
 

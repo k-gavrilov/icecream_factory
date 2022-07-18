@@ -1,11 +1,16 @@
 class Package
-  attr_reader :cost, :open
+  attr_reader :cost, :opened
 
-  def open!
-    raise NoMethodError, "Method should be implemented in concrete classes"
+  def initialize(cost:)
+    @cost = cost
+    @opened = false
   end
 
-  def open?
-    raise NoMethodError, "Method should be implemented in concrete classes"
+  def open
+    @opened = true
+  end
+
+  def opened?
+    opened
   end
 end
