@@ -11,27 +11,17 @@ class ApiWeatherReporter < WeatherReporter
   end
 
   def load_temperature(date)
-    # q = "#{latitude}, #{longitude}"
-    # conn = Faraday.new(
-    #   url: 'https://api.weatherapi.com/v1',
-    #   params: { key: @key }
-    # )
-    # response = conn.get('history.json') do |req|
-    #   req.params[:q] = q
-    #   req.params[:dt] = date
-    # end
-    # response
-
     q = "#{latitude}, #{longitude}"
     conn = Faraday.new(
       url: 'https://api.weatherapi.com/v1',
       params: { key: @key }
     )
-    response = conn.get('current.json') do |req|
+    response = conn.get('history.json') do |req|
       req.params[:q] = q
+      req.params[:dt] = date
     end
     weather_info = JSON.parse(response.body)
-    temp_in_c = weather_info['current']['temp_c'].to_f
+    temp_in_c = weather_info['forecastday']['day']['average'].to_f
     ensure_units(temp_in_c)
   end
 end
