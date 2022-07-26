@@ -11,5 +11,3 @@ ice_cream = batch[0]
 ice_cream.open
 puts ice_cream.opened?
 puts ice_cream.cost
-# reporter = ApiWeatherReporter.new(latitude: '48.15828369063265', longitude: '11.59861076780694')
-# puts reporter.load_temperature("2021-09-10").inspect
