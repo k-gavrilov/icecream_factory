@@ -3,7 +3,7 @@ require_relative 'weather_reporter'
 class RandomWeatherReporter < WeatherReporter
   MIN_TEMP_IN_C = -50.0
   MAX_TEMP_IN_C = 50.0
-  def load_temperature(time)
+  def load_temperature(date)
     random_temperature
   end
 

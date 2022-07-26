@@ -7,7 +7,7 @@ class WeatherReporter
     @units = units
   end
 
-  def load_temperature(time)
+  def load_temperature(date)
     raise NoMethodError, "Method should be implemented in concrete classes"
   end
 end
