@@ -31,6 +31,7 @@ class ApiWeatherReporter < WeatherReporter
       req.params[:q] = q
     end
     weather_info = JSON.parse(response.body)
-    weather_info['current']['temp_c'].to_f
+    temp_in_c = weather_info['current']['temp_c'].to_f
+    ensure_units(temp_in_c)
   end
 end
