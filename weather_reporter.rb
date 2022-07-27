@@ -11,6 +11,8 @@ class WeatherReporter
     raise NoMethodError, "Method should be implemented in concrete classes"
   end
 
+  protected
+
   def ensure_units(temp_in_c)
     case (units)
     when 'f'
