@@ -5,11 +5,12 @@ class TemperaturePredictor
   SECONDS_IN_YEAR = SECONDS_IN_DAY * 365
   attr_reader :latitude, :longitude, :units, :data_source, :prediction_type
 
-  def initialize(latitude:, longitude:, units: 'c', prediction_type: :average)
+  def initialize(latitude:, longitude:, units: 'c', prediction_type: :average,
+                 data_source: ApiWeatherReporter.new(latitude: latitude, longitude: longitude, units: units))
     @latitude = latitude
     @longitude = longitude
     @units = units
-    @data_source = ApiWeatherReporter.new(latitude: latitude, longitude: longitude, units: units)
+    @data_source = data_source
     @prediction_type = prediction_type
   end
 
